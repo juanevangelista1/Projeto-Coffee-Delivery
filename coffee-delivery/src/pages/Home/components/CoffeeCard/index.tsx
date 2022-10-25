@@ -1,5 +1,10 @@
-﻿import { RegularText, TitleText } from '../../../../components/Typography'
+﻿import { ShoppingCart } from 'phosphor-react'
+import { useState } from 'react'
+import { QuantityInput } from '../../../../components/QuantityInput'
+import { RegularText, TitleText } from '../../../../components/Typography'
+import { formatMoney } from '../../../../utils/formatMoney'
 import {
+  AddCartWrapper,
   CardFooter,
   CoffeeCardContainer,
   Description,
@@ -7,29 +12,77 @@ import {
   Tags
 } from './styles'
 
-export function CoffeeCard() {
+export interface Coffee {
+  id: number
+  tags: string[]
+  name: string
+  description: string
+  photo: string
+  price: number
+}
+
+interface CoffeeProps {
+  coffee: Coffee
+}
+
+export function CoffeeCard({ coffee }: CoffeeProps) {
+  const [quantity, setQuantity] = useState(1)
+
+  function handleIncrease() {
+    setQuantity(state => state + 1)
+  }
+
+  function handleDecrease() {
+    setQuantity(state => state - 1)
+  }
+
+  // const { addCoffeeToCart } = useCart()
+
+  function handleAddToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity
+    }
+    addCoffeeToCart(coffeeToAdd)
+  }
+
+  const formattedPrice = formatMoney(coffee.price)
+
   return (
     <CoffeeCardContainer>
-      <img
-        src="https://s3-alpha-sig.figma.com/img/55b1/f9ee/64600f98b2bae456b96fdc624c4b4f47?Expires=1667779200&Signature=HeDE89LwcvcS9ppgX1jzq3qyENb-L7t2-BR0dUgU0r9jKHYW0Y9iQepVsTWWGAzEHE1F0oLXkDkAVbd~sxK8E0cuuFGyX4kl68UZZ4E~CXT8eFmKmkPyu5b-J5q4mjbemSCl91ZW3u4tMmBTUaXWlkO86m6pVN4EJYMHa4~AQ7uYEgF2ivVRxaFVjL-kVggwfoD6uQmHJ6tpgX6k9ckplWKGUAoZfqnNojiDuEhF9PDOEGi6oFiNvBSVY7sQcNw6RfCZSUAKlTk8j~3u6Y97b3EDrvBLmEmqSeU-CC65MXkGLpFattUYuRNS2KyIhdOflnY~-Z7S1qGaS76KhGXWvg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-        alt=""
-      />
+      <img src={`/coffees/${coffee.photo}`} />
       <Tags>
-        <span>Tradicional</span>
-        <span>com leite</span>
+        {coffee.tags.map(tag => (
+          <span key={`${coffee.id}${tag}`}>{tag}</span>
+        ))}
       </Tags>
-      <Name>Expresso Tradicional</Name>
-      <Description>
-        O tradicional café feito com água quente e grãos moídos
-      </Description>
+
+      <Name>{coffee.name}</Name>
+      <Description>{coffee.description}</Description>
+
       <CardFooter>
         <div>
           <RegularText size="s">R$</RegularText>
           <TitleText size="m" color="text" as="strong">
-            9,90
+            {formattedPrice}
           </TitleText>
         </div>
+
+        <AddCartWrapper>
+          <QuantityInput
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            quantity={quantity}
+          />
+          <button onClick={handleAddToCart}>
+            <ShoppingCart weight="fill" size={22} />
+          </button>
+        </AddCartWrapper>
       </CardFooter>
     </CoffeeCardContainer>
   )
 }
+
+// function useCart(): { addCoffeeToCart: any } {
+//   throw new Error('Function not implemented.')
+// }
