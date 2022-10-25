@@ -1,14 +1,14 @@
-﻿import {
+﻿import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import { useTheme } from 'styled-components'
+import { InfoWithIcon } from '../../../../components/InfoWithIcon'
+import { RegularText } from '../../../../components/Typography'
+import {
   BenefitsContainer,
   IntroContainer,
   IntroContent,
   IntroTitle
 } from './styles'
-import introImgCoffee from '../../../assets/Img-coffee-intro.svg'
-import { RegularText } from '../../../components/Typography'
-import { InfoWithIcon } from '../../../components/InfoWithIcon'
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { useTheme } from 'styled-components'
+import introImg from '../../../../assets/Img-coffee-intro.svg'
 
 export function Intro() {
   const { colors } = useTheme()
@@ -19,13 +19,14 @@ export function Intro() {
         <div>
           <section>
             <IntroTitle size="xl">
-              Encontre o café perfeito para qualquer hora do dia!
+              Encontre o café perfeito para qualquer hora do dia
             </IntroTitle>
-            <RegularText size="l" color="subtitle">
+            <RegularText as="h3" size="l" color="subtitle">
               Com o Coffee Delivery você recebe seu café onde estiver, a
               qualquer hora
             </RegularText>
           </section>
+
           <BenefitsContainer>
             <InfoWithIcon
               iconBg={colors['brand-yellow-dark']}
@@ -49,7 +50,8 @@ export function Intro() {
             />
           </BenefitsContainer>
         </div>
-        <img src={introImgCoffee} alt="" />
+
+        <img src={introImg} />
       </IntroContent>
     </IntroContainer>
   )
