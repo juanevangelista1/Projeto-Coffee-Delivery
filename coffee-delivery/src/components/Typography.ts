@@ -1,5 +1,3 @@
-﻿//Componente para cuidar das cores e do tamanho do texto na aplicação. 
-
 import styled from "styled-components";
 
 interface TitleTextProps {

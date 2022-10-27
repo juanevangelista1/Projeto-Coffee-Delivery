@@ -1,58 +1,59 @@
-﻿import { ShoppingCart } from 'phosphor-react'
-import { useState } from 'react'
-import { QuantityInput } from '../../../../components/QuantityInput'
-import { RegularText, TitleText } from '../../../../components/Typography'
-import { formatMoney } from '../../../../utils/formatMoney'
+import { QuantityInput } from "../../../../components/QuantityInput";
+import { RegularText, TitleText } from "../../../../components/Typography";
 import {
-  AddCartWrapper,
-  CardFooter,
   CoffeeCardContainer,
-  Description,
+  Tags,
   Name,
-  Tags
-} from './styles'
+  Description,
+  CardFooter,
+  AddCartWrapper,
+} from "./styles";
+import { ShoppingCart } from "phosphor-react";
+import { useState } from "react";
+import { useCart } from "../../../../hooks/useCart";
+import { formatMoney } from "../../../../utils/formatMoney";
 
 export interface Coffee {
-  id: number
-  tags: string[]
-  name: string
-  description: string
-  photo: string
-  price: number
+  id: number;
+  tags: string[];
+  name: string;
+  description: string;
+  photo: string;
+  price: number;
 }
 
 interface CoffeeProps {
-  coffee: Coffee
+  coffee: Coffee;
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
 
   function handleIncrease() {
-    setQuantity(state => state + 1)
+    setQuantity((state) => state + 1);
   }
 
   function handleDecrease() {
-    setQuantity(state => state - 1)
+    setQuantity((state) => state - 1);
   }
 
-  // const { addCoffeeToCart } = useCart()
+  const { addCoffeeToCart } = useCart();
 
   function handleAddToCart() {
     const coffeeToAdd = {
       ...coffee,
-      quantity
-    }
-    addCoffeeToCart(coffeeToAdd)
+      quantity,
+    };
+    addCoffeeToCart(coffeeToAdd);
   }
 
-  const formattedPrice = formatMoney(coffee.price)
+  const formattedPrice = formatMoney(coffee.price);
 
   return (
     <CoffeeCardContainer>
       <img src={`/coffees/${coffee.photo}`} />
       <Tags>
-        {coffee.tags.map(tag => (
+        {coffee.tags.map((tag) => (
           <span key={`${coffee.id}${tag}`}>{tag}</span>
         ))}
       </Tags>
@@ -80,9 +81,5 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         </AddCartWrapper>
       </CardFooter>
     </CoffeeCardContainer>
-  )
+  );
 }
-
-// function useCart(): { addCoffeeToCart: any } {
-//   throw new Error('Function not implemented.')
-// }

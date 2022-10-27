@@ -1,17 +1,17 @@
-﻿import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { useTheme } from 'styled-components'
-import { InfoWithIcon } from '../../../../components/InfoWithIcon'
-import { RegularText } from '../../../../components/Typography'
 import {
   BenefitsContainer,
   IntroContainer,
   IntroContent,
-  IntroTitle
-} from './styles'
-import introImg from '../../../../assets/Img-coffee-intro.svg'
+  IntroTitle,
+} from "./styles";
+import introImg from "../../../../assets/intro-img.png";
+import { ShoppingCart, Package, Timer, Coffee } from "phosphor-react";
+import { useTheme } from "styled-components";
+import { RegularText } from "../../../../components/Typography";
+import { InfoWithIcon } from "../../../../components/InfoWithIcon";
 
 export function Intro() {
-  const { colors } = useTheme()
+  const { colors } = useTheme();
 
   return (
     <IntroContainer>
@@ -29,22 +29,22 @@ export function Intro() {
 
           <BenefitsContainer>
             <InfoWithIcon
-              iconBg={colors['brand-yellow-dark']}
+              iconBg={colors["brand-yellow-dark"]}
               icon={<ShoppingCart weight="fill" />}
               text="Compra simples e segura"
             />
             <InfoWithIcon
-              iconBg={colors['base-text']}
+              iconBg={colors["base-text"]}
               icon={<Package weight="fill" />}
               text="Embalagem mantém o café intacto"
             />
             <InfoWithIcon
-              iconBg={colors['brand-yellow']}
+              iconBg={colors["brand-yellow"]}
               icon={<Timer weight="fill" />}
               text="Entrega rápida e rastreada"
             />
             <InfoWithIcon
-              iconBg={colors['brand-purple']}
+              iconBg={colors["brand-purple"]}
               icon={<Coffee weight="fill" />}
               text="O café chega fresquinho até você"
             />
@@ -54,5 +54,5 @@ export function Intro() {
         <img src={introImg} />
       </IntroContent>
     </IntroContainer>
-  )
+  );
 }

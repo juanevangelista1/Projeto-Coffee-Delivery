@@ -1,4 +1,4 @@
-﻿import styled, { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -11,6 +11,7 @@ export const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   z-index: 5;
+
   > div {
     width: 100%;
     display: flex;
@@ -41,6 +42,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
   padding: 0 0.5rem;
   position: relative;
   cursor: inherit;
+
   span {
     position: absolute;
     width: 1.25rem;
@@ -55,14 +57,18 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
     font-size: 0.75rem;
     font-weight: 700;
   }
+
   font-size: ${({ theme }) => theme.textSizes["text-regular-s"]};
+
   ${({ variant }) => css`
     background: ${({ theme }) => theme.colors[`brand-${variant}-light`]};
     color: ${({ theme }) => theme.colors[`brand-${variant}-dark`]};
+
     span {
       background: ${({ theme }) => theme.colors[`brand-${variant}-dark`]};
     }
   `}
+
   ${({ variant }) =>
     variant === "purple" &&
     css`

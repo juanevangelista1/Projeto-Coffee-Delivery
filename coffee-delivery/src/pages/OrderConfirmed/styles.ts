@@ -1,13 +1,15 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
 
 export const OrderConfirmedContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
   margin-top: 5rem;
+
   h1 {
     color: ${({ theme }) => theme.colors["brand-yellow-dark"]};
   }
+
   > section {
     display: flex;
     align-items: center;
@@ -24,6 +26,7 @@ export const OrderDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
   &::before {
     content: "";
     position: absolute;

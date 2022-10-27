@@ -1,16 +1,16 @@
-﻿import { forwardRef, InputHTMLAttributes } from 'react'
-import { RegularText } from '../Typography'
+import { forwardRef, InputHTMLAttributes } from "react";
+import { RegularText } from "../Typography";
 import {
+  InputWrapper,
   InputStyleContainer,
   InputStyled,
-  InputWrapper,
-  RightText
-} from './styles'
+  RightText,
+} from "./styles";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  error?: string
-  rightText?: string
-}
+  error?: string;
+  rightText?: string;
+};
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ error, rightText, className, ...props }, ref) => {
@@ -22,6 +22,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         </InputStyleContainer>
         {error && <RegularText size="s">{error}</RegularText>}
       </InputWrapper>
-    )
+    );
   }
-)
+);

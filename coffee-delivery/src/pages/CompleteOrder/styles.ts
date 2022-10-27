@@ -1,4 +1,4 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
 
 export const CompleteOrderContainer = styled.form`
   width: 100%;

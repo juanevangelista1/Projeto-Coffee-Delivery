@@ -1,4 +1,4 @@
-﻿import styled, { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 export interface QuantityInputContainerProps {
   size: "medium" | "small";
@@ -12,21 +12,25 @@ export const QuantityInputContainer = styled.div<QuantityInputContainerProps>`
   justify-content: space-between;
   gap: 4px;
   border-radius: 6px;
+
   input {
     text-align: center;
     width: 100%;
     background: none;
     border: none;
     color: ${({ theme }) => theme.colors["base-title"]};
+
     &:focus {
       outline: none;
     }
   }
+
   ${({ size }) =>
     size === "medium" &&
     css`
       padding: 0.5rem;
     `}
+
   ${({ size }) =>
     size === "small" &&
     css`
@@ -43,9 +47,11 @@ export const IconWrapper = styled.button.attrs({
   background: none;
   color: ${({ theme }) => theme.colors["brand-purple"]};
   transition: 0.4s;
+
   &:disabled {
     opacity: 0.4;
   }
+
   &:not(:disabled):hover {
     color: ${({ theme }) => theme.colors["brand-purple-dark"]};
   }

@@ -1,4 +1,4 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
 import { RegularText, TitleText } from "../../../../components/Typography";
 
 export const CoffeeCardContainer = styled.div`
@@ -11,6 +11,7 @@ export const CoffeeCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+
   img {
     width: 7.5rem;
     height: 7.5rem;
@@ -27,6 +28,7 @@ export const Tags = styled.div`
   margin-top: 1rem;
   margin-bottom: 1.25rem;
   flex-wrap: wrap;
+
   span {
     background: ${({ theme }) => theme.colors["brand-yellow-light"]};
     color: ${({ theme }) => theme.colors["brand-yellow-dark"]};
@@ -58,10 +60,12 @@ export const CardFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   > div {
     display: flex;
     align-items: center;
     gap: 3px;
+
     p {
       line-height: 0.75rem;
     }
@@ -70,6 +74,7 @@ export const CardFooter = styled.div`
 
 export const AddCartWrapper = styled.div`
   width: 7.5rem;
+
   > button {
     width: 2.375rem;
     height: 2.375rem;
@@ -82,6 +87,7 @@ export const AddCartWrapper = styled.div`
     border-radius: 6px;
     margin-left: 0.3rem;
     transition: 0.4s;
+
     &:hover {
       background: ${({ theme }) => theme.colors["brand-purple"]};
     }

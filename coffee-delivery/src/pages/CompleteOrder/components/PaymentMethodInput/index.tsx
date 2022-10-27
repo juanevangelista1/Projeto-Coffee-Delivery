@@ -1,10 +1,10 @@
-﻿import { forwardRef, InputHTMLAttributes, ReactNode } from 'react'
-import { ContentContainer, PaymentMethodContainer } from './styles'
+import { forwardRef, InputHTMLAttributes, ReactNode } from "react";
+import { ContentContainer, PaymentMethodContainer } from "./styles";
 
 type PaymentMethodInputProps = InputHTMLAttributes<HTMLInputElement> & {
-  icon?: ReactNode
-  label?: string
-}
+  icon: ReactNode;
+  label: string;
+};
 
 export const PaymentMethodInput = forwardRef<
   HTMLInputElement,
@@ -20,5 +20,5 @@ export const PaymentMethodInput = forwardRef<
         </ContentContainer>
       </label>
     </PaymentMethodContainer>
-  )
-})
+  );
+});

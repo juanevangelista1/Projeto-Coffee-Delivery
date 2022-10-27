@@ -1,4 +1,4 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
 import { SectionBaseStyle } from "../../styles";
 
 export const SelectedCoffeesContainer = styled.div`
@@ -18,6 +18,7 @@ export const ConfirmationSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+
   > div {
     display: flex;
     align-items: center;
